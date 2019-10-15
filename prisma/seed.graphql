@@ -31,4 +31,12 @@ mutation {
   }) {
     id
   }
+
+  page: createPage (data: {    
+    description: "Minim pariatur duis in minim magna proident sunt. Nulla pariatur consequat laboris ut anim. Non tempor enim sunt ex adipisicing pariatur ex aliquip ipsum dolor proident magna Lorem exercitation. Esse nostrud ullamco consectetur irure fugiat. Quis proident elit voluptate amet id in. Sunt mollit nostrud duis enim dolor occaecat sunt elit sunt proident cillum.",
+    name: "Occaecat cillum ullamco",
+    path: "/occaecat",      
+  }){
+    id
+  }
 }

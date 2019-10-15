@@ -1,9 +1,9 @@
 # Specifies the HTTP endpoint of your Prisma API (deployed to a Prisma Demo server).
-endpoint: http://localhost:4466
+endpoint: https://eu1.prisma.sh/warren-clough-9b6775/website/dev
 
 # Defines your models, each model is mapped to the database as a table.
 datamodel: datamodel.prisma
-databaseType: document
+# databaseType: document
 
 # Specifies the language and directory for the generated Prisma client.
 generate:

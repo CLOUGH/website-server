@@ -15,3 +15,20 @@ type User {
   name: String!
   posts: [Post!]!
 }
+
+type Page {
+  id: ID! @id
+  name: String!
+  path: String! @unique
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  description: String
+  sections: [Section!]!
+}
+
+type Section { 
+  id: ID! @id
+  type: String!
+  image: String
+  content: String
+}

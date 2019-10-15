@@ -1,3 +1,4 @@
+import { page } from './page';
 import { Section } from './Section';
 import { Query } from './Query'
 import { Subscription } from './Subscription'
@@ -11,9 +12,11 @@ export default {
   Mutation: {
     ...auth,
     ...post,
+    
   },
   Subscription,
   User,
   Post,
-  Section
+  // Section,
+  ...page
 }

@@ -12,6 +12,8 @@ type Mutation {
   createDraft(title: String!, content: String!): Post!
   publish(id: ID!): Post!
   deletePost(id: ID!): Post!
+
+  createPage(page:PageCreateInput): Page
 }
 
 type Subscription {
@@ -39,21 +41,30 @@ type Post {
 }
 
 type Page {
+  id: ID
   name: String
   path: String
   description: String
   sections: [Section]
 }
 
-union Section = HeroSection | TextSection
 
-type HeroSection {
+type Section {
+  id: ID!
   type: String
   image: String
   content: String
 }
 
-type TextSection {
+input PageCreateInput {
+  name: String
+  path: String
+  description: String
+  sections: [SectionCreateInput]
+}
+
+input SectionCreateInput {
   type: String
+  image: String
   content: String
 }
