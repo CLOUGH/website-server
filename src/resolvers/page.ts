@@ -31,6 +31,15 @@ export const page = {
         data:{name, path, description},
         where: {id: id}
       });
-    }
+    },
+    async deletePage(parent, { id }, ctx: Context, info) {
+      const userId = ctx.prisma.page({id});
+      const pageExist = await ctx.prisma.$exists.page({id});
+      if (!pageExist) {
+        throw new Error(`Page not found`);
+      }
+  
+      return ctx.prisma.deletePage({ id });
+    },
   }
 }

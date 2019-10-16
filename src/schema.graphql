@@ -16,6 +16,7 @@ type Mutation {
 
   createPage(page:PageInput): Page
   updatePage(page:PageInput!, id: ID!): Page
+  deletePage(id: ID!): Page
 }
 
 type Subscription {
