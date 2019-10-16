@@ -4,6 +4,7 @@ type Query {
   post(id: ID!): Post
   me: User
   pages: [Page]
+  page(id: ID!): Page
 }
 
 type Mutation {
@@ -13,7 +14,8 @@ type Mutation {
   publish(id: ID!): Post!
   deletePost(id: ID!): Post!
 
-  createPage(page:PageCreateInput): Page
+  createPage(page:PageInput): Page
+  updatePage(page:PageInput!, id: ID!): Page
 }
 
 type Subscription {
@@ -56,14 +58,16 @@ type Section {
   content: String
 }
 
-input PageCreateInput {
+input PageInput {
+  id: ID
   name: String
   path: String
   description: String
-  sections: [SectionCreateInput]
+  sections: [SectionInput]
 }
 
-input SectionCreateInput {
+input SectionInput {
+  id: ID
   type: String
   image: String
   content: String

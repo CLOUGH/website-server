@@ -6,6 +6,9 @@ export const page = {
     pages(parent, args, ctx: Context) {
       return ctx.prisma.pages();
     },
+    page(parent, {id}, ctx: Context) {
+      return ctx.prisma.page({id});
+    },
     
   },
   Page : {
@@ -20,6 +23,13 @@ export const page = {
         sections : {
           create : page.sections
         }
+      });
+    },
+    async updatePage(parent, {id, page}, ctx: Context, info) {
+      const {name, path, description} = page;
+      return ctx.prisma.updatePage({
+        data:{name, path, description},
+        where: {id: id}
       });
     }
   }
