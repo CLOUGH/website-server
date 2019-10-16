@@ -60,16 +60,15 @@ type Section {
 }
 
 input PageInput {
-  id: ID
-  name: String
-  path: String
+  name: String!
+  path: String!
   description: String
   sections: [SectionInput]
 }
 
 input SectionInput {
   id: ID
-  type: String
+  type: String!
   image: String
-  content: String
+  content: String!
 }

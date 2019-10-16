@@ -26,10 +26,21 @@ export const page = {
       });
     },
     async updatePage(parent, {id, page}, ctx: Context, info) {
-      const {name, path, description} = page;
+      const {sections, ...pageUpdate} = page;
       return ctx.prisma.updatePage({
-        data:{name, path, description},
-        where: {id: id}
+        where: {id},
+        data:{ 
+          ...pageUpdate,
+          sections: {
+            create: sections.filter(section => !section.id).map(section => section),
+            update: sections.filter(section => section.id).map(section => {
+              return {
+                where: {id},
+                data: section
+              }
+            })
+          }
+        }
       });
     },
     async deletePage(parent, { id }, ctx: Context, info) {
