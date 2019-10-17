@@ -3,6 +3,9 @@ import { Context } from '../utils';
 
 export const page = {
   Query : {
+    pageByPath(parent, {path}, ctx: Context) {
+      return ctx.prisma.page({path})
+    },
     pages(parent, args, ctx: Context) {
       return ctx.prisma.pages();
     },
@@ -34,9 +37,10 @@ export const page = {
           sections: {
             create: sections.filter(section => !section.id).map(section => section),
             update: sections.filter(section => section.id).map(section => {
+              const {id,...sectionData} = section
               return {
                 where: {id},
-                data: section
+                data: sectionData
               }
             })
           }

@@ -3,8 +3,10 @@ type Query {
   drafts: [Post!]!
   post(id: ID!): Post
   me: User
+
   pages: [Page]
-  page(id: ID!): Page
+  page(id: ID!): Page!
+  pageByPath(path: String!): Page!
 }
 
 type Mutation {
