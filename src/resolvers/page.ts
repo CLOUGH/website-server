@@ -35,12 +35,20 @@ export const page = {
         data:{ 
           ...pageUpdate,
           sections: {
-            create: sections.filter(section => !section.id).map(section => section),
-            update: sections.filter(section => section.id).map(section => {
+            create: sections.filter(section => !section.id).map(section => {
               const {id,...sectionData} = section
+              return sectionData
+            }),
+            update: sections.filter(section => section.id && !section.deleted).map(section => {
+              const {id,...sectionData} = section;
               return {
                 where: {id},
                 data: sectionData
+              }
+            }),
+            delete: sections.filter(section =>section.id && section.deleted).map(section => {
+              return {
+               id: section.id
               }
             })
           }

@@ -73,4 +73,5 @@ input SectionInput {
   type: String!
   image: String
   content: String!
+  deleted: Boolean
 }
