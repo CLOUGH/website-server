@@ -71,7 +71,6 @@ type Page {
   updatedAt: DateTime!
   description: String
   published: Boolean!
-  homePage: Boolean!
   sections(where: SectionWhereInput, orderBy: SectionOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Section!]
 }
 
@@ -87,7 +86,6 @@ input PageCreateInput {
   path: String!
   description: String
   published: Boolean
-  homePage: Boolean
   sections: SectionCreateManyInput
 }
 
@@ -118,8 +116,6 @@ enum PageOrderByInput {
   description_DESC
   published_ASC
   published_DESC
-  homePage_ASC
-  homePage_DESC
 }
 
 type PagePreviousValues {
@@ -130,7 +126,6 @@ type PagePreviousValues {
   updatedAt: DateTime!
   description: String
   published: Boolean!
-  homePage: Boolean!
 }
 
 type PageSubscriptionPayload {
@@ -156,7 +151,6 @@ input PageUpdateInput {
   path: String
   description: String
   published: Boolean
-  homePage: Boolean
   sections: SectionUpdateManyInput
 }
 
@@ -165,7 +159,6 @@ input PageUpdateManyMutationInput {
   path: String
   description: String
   published: Boolean
-  homePage: Boolean
 }
 
 input PageWhereInput {
@@ -243,8 +236,6 @@ input PageWhereInput {
   description_not_ends_with: String
   published: Boolean
   published_not: Boolean
-  homePage: Boolean
-  homePage_not: Boolean
   sections_every: SectionWhereInput
   sections_some: SectionWhereInput
   sections_none: SectionWhereInput
@@ -552,6 +543,9 @@ type Section {
   type: String!
   image: String
   content: String
+  order: Int!
+  createdAt: DateTime!
+  updatedAt: DateTime!
 }
 
 type SectionConnection {
@@ -565,6 +559,7 @@ input SectionCreateInput {
   type: String!
   image: String
   content: String
+  order: Int!
 }
 
 input SectionCreateManyInput {
@@ -586,6 +581,12 @@ enum SectionOrderByInput {
   image_DESC
   content_ASC
   content_DESC
+  order_ASC
+  order_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
 }
 
 type SectionPreviousValues {
@@ -593,6 +594,9 @@ type SectionPreviousValues {
   type: String!
   image: String
   content: String
+  order: Int!
+  createdAt: DateTime!
+  updatedAt: DateTime!
 }
 
 input SectionScalarWhereInput {
@@ -652,6 +656,30 @@ input SectionScalarWhereInput {
   content_not_starts_with: String
   content_ends_with: String
   content_not_ends_with: String
+  order: Int
+  order_not: Int
+  order_in: [Int!]
+  order_not_in: [Int!]
+  order_lt: Int
+  order_lte: Int
+  order_gt: Int
+  order_gte: Int
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   AND: [SectionScalarWhereInput!]
   OR: [SectionScalarWhereInput!]
   NOT: [SectionScalarWhereInput!]
@@ -679,18 +707,21 @@ input SectionUpdateDataInput {
   type: String
   image: String
   content: String
+  order: Int
 }
 
 input SectionUpdateInput {
   type: String
   image: String
   content: String
+  order: Int
 }
 
 input SectionUpdateManyDataInput {
   type: String
   image: String
   content: String
+  order: Int
 }
 
 input SectionUpdateManyInput {
@@ -709,6 +740,7 @@ input SectionUpdateManyMutationInput {
   type: String
   image: String
   content: String
+  order: Int
 }
 
 input SectionUpdateManyWithWhereNestedInput {
@@ -784,6 +816,30 @@ input SectionWhereInput {
   content_not_starts_with: String
   content_ends_with: String
   content_not_ends_with: String
+  order: Int
+  order_not: Int
+  order_in: [Int!]
+  order_not_in: [Int!]
+  order_lt: Int
+  order_lte: Int
+  order_gt: Int
+  order_gte: Int
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   AND: [SectionWhereInput!]
   OR: [SectionWhereInput!]
   NOT: [SectionWhereInput!]

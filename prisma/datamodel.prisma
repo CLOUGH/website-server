@@ -24,7 +24,6 @@ type Page {
   updatedAt: DateTime! @updatedAt
   description: String
   published: Boolean! @default(value: false)
-  homePage: Boolean! @default(value: false)
   sections: [Section!]!
 }
 
@@ -33,4 +32,7 @@ type Section {
   type: String!
   image: String
   content: String
+  order: Int!
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
 }

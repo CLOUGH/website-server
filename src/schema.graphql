@@ -1,3 +1,7 @@
+scalar DateTime
+scalar Date
+scalar Time
+
 type Query {
   feed: [Post!]!
   drafts: [Post!]!
@@ -49,6 +53,10 @@ type Page {
   id: ID
   name: String
   path: String
+  createdAt: DateTime
+  updatedAt: DateTime
+  homePage: Boolean
+  published: Boolean
   description: String
   sections: [Section]
 }
@@ -59,6 +67,9 @@ type Section {
   type: String
   image: String
   content: String
+  createdAt: DateTime
+  updatedAt: DateTime
+  order: Int!
 }
 
 input PageInput {
@@ -66,6 +77,7 @@ input PageInput {
   path: String!
   description: String
   sections: [SectionInput]
+  published: Boolean
 }
 
 input SectionInput {
@@ -74,4 +86,5 @@ input SectionInput {
   image: String
   content: String!
   deleted: Boolean
+  order: Int!
 }

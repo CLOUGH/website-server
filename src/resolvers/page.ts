@@ -16,7 +16,9 @@ export const page = {
   },
   Page : {
     sections: ({ id }, args, ctx: Context) => {
-      return ctx.prisma.page({id}).sections();
+      return ctx.prisma.page({id}).sections({
+        orderBy: "order_ASC"
+      });
     }
   },
   Mutation: {
