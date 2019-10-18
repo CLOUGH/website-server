@@ -70,6 +70,8 @@ type Page {
   createdAt: DateTime!
   updatedAt: DateTime!
   description: String
+  published: Boolean!
+  homePage: Boolean!
   sections(where: SectionWhereInput, orderBy: SectionOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Section!]
 }
 
@@ -84,6 +86,8 @@ input PageCreateInput {
   name: String!
   path: String!
   description: String
+  published: Boolean
+  homePage: Boolean
   sections: SectionCreateManyInput
 }
 
@@ -112,6 +116,10 @@ enum PageOrderByInput {
   updatedAt_DESC
   description_ASC
   description_DESC
+  published_ASC
+  published_DESC
+  homePage_ASC
+  homePage_DESC
 }
 
 type PagePreviousValues {
@@ -121,6 +129,8 @@ type PagePreviousValues {
   createdAt: DateTime!
   updatedAt: DateTime!
   description: String
+  published: Boolean!
+  homePage: Boolean!
 }
 
 type PageSubscriptionPayload {
@@ -145,6 +155,8 @@ input PageUpdateInput {
   name: String
   path: String
   description: String
+  published: Boolean
+  homePage: Boolean
   sections: SectionUpdateManyInput
 }
 
@@ -152,6 +164,8 @@ input PageUpdateManyMutationInput {
   name: String
   path: String
   description: String
+  published: Boolean
+  homePage: Boolean
 }
 
 input PageWhereInput {
@@ -227,6 +241,10 @@ input PageWhereInput {
   description_not_starts_with: String
   description_ends_with: String
   description_not_ends_with: String
+  published: Boolean
+  published_not: Boolean
+  homePage: Boolean
+  homePage_not: Boolean
   sections_every: SectionWhereInput
   sections_some: SectionWhereInput
   sections_none: SectionWhereInput

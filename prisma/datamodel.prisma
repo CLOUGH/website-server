@@ -23,6 +23,8 @@ type Page {
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
   description: String
+  published: Boolean! @default(value: false)
+  homePage: Boolean! @default(value: false)
   sections: [Section!]!
 }
 
