@@ -31,6 +31,7 @@ type Section {
   id: ID! @id
   type: String!
   image: String
+  video: String
   content: String
   order: Int!
   createdAt: DateTime! @createdAt

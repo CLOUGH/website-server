@@ -542,6 +542,7 @@ type Section {
   id: ID!
   type: String!
   image: String
+  video: String
   content: String
   order: Int!
   createdAt: DateTime!
@@ -558,6 +559,7 @@ input SectionCreateInput {
   id: ID
   type: String!
   image: String
+  video: String
   content: String
   order: Int!
 }
@@ -579,6 +581,8 @@ enum SectionOrderByInput {
   type_DESC
   image_ASC
   image_DESC
+  video_ASC
+  video_DESC
   content_ASC
   content_DESC
   order_ASC
@@ -593,6 +597,7 @@ type SectionPreviousValues {
   id: ID!
   type: String!
   image: String
+  video: String
   content: String
   order: Int!
   createdAt: DateTime!
@@ -642,6 +647,20 @@ input SectionScalarWhereInput {
   image_not_starts_with: String
   image_ends_with: String
   image_not_ends_with: String
+  video: String
+  video_not: String
+  video_in: [String!]
+  video_not_in: [String!]
+  video_lt: String
+  video_lte: String
+  video_gt: String
+  video_gte: String
+  video_contains: String
+  video_not_contains: String
+  video_starts_with: String
+  video_not_starts_with: String
+  video_ends_with: String
+  video_not_ends_with: String
   content: String
   content_not: String
   content_in: [String!]
@@ -706,6 +725,7 @@ input SectionSubscriptionWhereInput {
 input SectionUpdateDataInput {
   type: String
   image: String
+  video: String
   content: String
   order: Int
 }
@@ -713,6 +733,7 @@ input SectionUpdateDataInput {
 input SectionUpdateInput {
   type: String
   image: String
+  video: String
   content: String
   order: Int
 }
@@ -720,6 +741,7 @@ input SectionUpdateInput {
 input SectionUpdateManyDataInput {
   type: String
   image: String
+  video: String
   content: String
   order: Int
 }
@@ -739,6 +761,7 @@ input SectionUpdateManyInput {
 input SectionUpdateManyMutationInput {
   type: String
   image: String
+  video: String
   content: String
   order: Int
 }
@@ -802,6 +825,20 @@ input SectionWhereInput {
   image_not_starts_with: String
   image_ends_with: String
   image_not_ends_with: String
+  video: String
+  video_not: String
+  video_in: [String!]
+  video_not_in: [String!]
+  video_lt: String
+  video_lte: String
+  video_gt: String
+  video_gte: String
+  video_contains: String
+  video_not_contains: String
+  video_starts_with: String
+  video_not_starts_with: String
+  video_ends_with: String
+  video_not_ends_with: String
   content: String
   content_not: String
   content_in: [String!]

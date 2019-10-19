@@ -225,6 +225,8 @@ export type SectionOrderByInput =
   | "type_DESC"
   | "image_ASC"
   | "image_DESC"
+  | "video_ASC"
+  | "video_DESC"
   | "content_ASC"
   | "content_DESC"
   | "order_ASC"
@@ -305,6 +307,7 @@ export interface PostUpdateInput {
 export interface SectionUpdateManyMutationInput {
   type?: Maybe<String>;
   image?: Maybe<String>;
+  video?: Maybe<String>;
   content?: Maybe<String>;
   order?: Maybe<Int>;
 }
@@ -312,6 +315,7 @@ export interface SectionUpdateManyMutationInput {
 export interface SectionUpdateManyDataInput {
   type?: Maybe<String>;
   image?: Maybe<String>;
+  video?: Maybe<String>;
   content?: Maybe<String>;
   order?: Maybe<Int>;
 }
@@ -319,6 +323,7 @@ export interface SectionUpdateManyDataInput {
 export interface SectionUpdateInput {
   type?: Maybe<String>;
   image?: Maybe<String>;
+  video?: Maybe<String>;
   content?: Maybe<String>;
   order?: Maybe<Int>;
 }
@@ -582,6 +587,7 @@ export interface SectionCreateInput {
   id?: Maybe<ID_Input>;
   type: String;
   image?: Maybe<String>;
+  video?: Maybe<String>;
   content?: Maybe<String>;
   order: Int;
 }
@@ -661,6 +667,7 @@ export interface PostCreateManyWithoutAuthorInput {
 export interface SectionUpdateDataInput {
   type?: Maybe<String>;
   image?: Maybe<String>;
+  video?: Maybe<String>;
   content?: Maybe<String>;
   order?: Maybe<Int>;
 }
@@ -735,6 +742,20 @@ export interface SectionScalarWhereInput {
   image_not_starts_with?: Maybe<String>;
   image_ends_with?: Maybe<String>;
   image_not_ends_with?: Maybe<String>;
+  video?: Maybe<String>;
+  video_not?: Maybe<String>;
+  video_in?: Maybe<String[] | String>;
+  video_not_in?: Maybe<String[] | String>;
+  video_lt?: Maybe<String>;
+  video_lte?: Maybe<String>;
+  video_gt?: Maybe<String>;
+  video_gte?: Maybe<String>;
+  video_contains?: Maybe<String>;
+  video_not_contains?: Maybe<String>;
+  video_starts_with?: Maybe<String>;
+  video_not_starts_with?: Maybe<String>;
+  video_ends_with?: Maybe<String>;
+  video_not_ends_with?: Maybe<String>;
   content?: Maybe<String>;
   content_not?: Maybe<String>;
   content_in?: Maybe<String[] | String>;
@@ -837,6 +858,20 @@ export interface SectionWhereInput {
   image_not_starts_with?: Maybe<String>;
   image_ends_with?: Maybe<String>;
   image_not_ends_with?: Maybe<String>;
+  video?: Maybe<String>;
+  video_not?: Maybe<String>;
+  video_in?: Maybe<String[] | String>;
+  video_not_in?: Maybe<String[] | String>;
+  video_lt?: Maybe<String>;
+  video_lte?: Maybe<String>;
+  video_gt?: Maybe<String>;
+  video_gte?: Maybe<String>;
+  video_contains?: Maybe<String>;
+  video_not_contains?: Maybe<String>;
+  video_starts_with?: Maybe<String>;
+  video_not_starts_with?: Maybe<String>;
+  video_ends_with?: Maybe<String>;
+  video_not_ends_with?: Maybe<String>;
   content?: Maybe<String>;
   content_not?: Maybe<String>;
   content_in?: Maybe<String[] | String>;
@@ -1058,6 +1093,7 @@ export interface Section {
   id: ID_Output;
   type: String;
   image?: String;
+  video?: String;
   content?: String;
   order: Int;
   createdAt: DateTimeOutput;
@@ -1068,6 +1104,7 @@ export interface SectionPromise extends Promise<Section>, Fragmentable {
   id: () => Promise<ID_Output>;
   type: () => Promise<String>;
   image: () => Promise<String>;
+  video: () => Promise<String>;
   content: () => Promise<String>;
   order: () => Promise<Int>;
   createdAt: () => Promise<DateTimeOutput>;
@@ -1080,6 +1117,7 @@ export interface SectionSubscription
   id: () => Promise<AsyncIterator<ID_Output>>;
   type: () => Promise<AsyncIterator<String>>;
   image: () => Promise<AsyncIterator<String>>;
+  video: () => Promise<AsyncIterator<String>>;
   content: () => Promise<AsyncIterator<String>>;
   order: () => Promise<AsyncIterator<Int>>;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
@@ -1092,6 +1130,7 @@ export interface SectionNullablePromise
   id: () => Promise<ID_Output>;
   type: () => Promise<String>;
   image: () => Promise<String>;
+  video: () => Promise<String>;
   content: () => Promise<String>;
   order: () => Promise<Int>;
   createdAt: () => Promise<DateTimeOutput>;
@@ -1375,6 +1414,7 @@ export interface SectionPreviousValues {
   id: ID_Output;
   type: String;
   image?: String;
+  video?: String;
   content?: String;
   order: Int;
   createdAt: DateTimeOutput;
@@ -1387,6 +1427,7 @@ export interface SectionPreviousValuesPromise
   id: () => Promise<ID_Output>;
   type: () => Promise<String>;
   image: () => Promise<String>;
+  video: () => Promise<String>;
   content: () => Promise<String>;
   order: () => Promise<Int>;
   createdAt: () => Promise<DateTimeOutput>;
@@ -1399,6 +1440,7 @@ export interface SectionPreviousValuesSubscription
   id: () => Promise<AsyncIterator<ID_Output>>;
   type: () => Promise<AsyncIterator<String>>;
   image: () => Promise<AsyncIterator<String>>;
+  video: () => Promise<AsyncIterator<String>>;
   content: () => Promise<AsyncIterator<String>>;
   order: () => Promise<AsyncIterator<Int>>;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;

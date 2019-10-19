@@ -67,6 +67,7 @@ type Section {
   type: String
   image: String
   content: String
+  video: String
   createdAt: DateTime
   updatedAt: DateTime
   order: Int!
@@ -84,6 +85,7 @@ input SectionInput {
   id: ID
   type: String!
   image: String
+  video: String
   content: String!
   deleted: Boolean
   order: Int!
