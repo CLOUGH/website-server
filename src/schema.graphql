@@ -56,9 +56,10 @@ type Page {
   createdAt: DateTime
   updatedAt: DateTime
   homePage: Boolean
-  published: Boolean
+  published: DateTime
   description: String
   sections: [Section]
+  status: String
 }
 
 
@@ -76,9 +77,10 @@ type Section {
 input PageInput {
   name: String!
   path: String!
+  status: String!
   description: String
   sections: [SectionInput]
-  published: Boolean
+  published: DateTime
 }
 
 input SectionInput {

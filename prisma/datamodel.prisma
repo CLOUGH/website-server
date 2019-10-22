@@ -19,12 +19,13 @@ type User {
 type Page {
   id: ID! @id
   name: String!
+  status: String
   path: String! @unique
+  published: DateTime
+  description: String
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
-  description: String
-  published: Boolean! @default(value: false)
-  sections: [Section!]!
+  sections: [Section!]! @relation(name: "PageOnSection", onDelete: CASCADE)
 }
 
 type Section { 

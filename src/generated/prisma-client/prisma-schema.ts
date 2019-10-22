@@ -66,11 +66,12 @@ interface Node {
 type Page {
   id: ID!
   name: String!
+  status: String
   path: String!
+  published: DateTime
+  description: String
   createdAt: DateTime!
   updatedAt: DateTime!
-  description: String
-  published: Boolean!
   sections(where: SectionWhereInput, orderBy: SectionOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Section!]
 }
 
@@ -83,9 +84,10 @@ type PageConnection {
 input PageCreateInput {
   id: ID
   name: String!
+  status: String
   path: String!
+  published: DateTime
   description: String
-  published: Boolean
   sections: SectionCreateManyInput
 }
 
@@ -106,26 +108,29 @@ enum PageOrderByInput {
   id_DESC
   name_ASC
   name_DESC
+  status_ASC
+  status_DESC
   path_ASC
   path_DESC
+  published_ASC
+  published_DESC
+  description_ASC
+  description_DESC
   createdAt_ASC
   createdAt_DESC
   updatedAt_ASC
   updatedAt_DESC
-  description_ASC
-  description_DESC
-  published_ASC
-  published_DESC
 }
 
 type PagePreviousValues {
   id: ID!
   name: String!
+  status: String
   path: String!
+  published: DateTime
+  description: String
   createdAt: DateTime!
   updatedAt: DateTime!
-  description: String
-  published: Boolean!
 }
 
 type PageSubscriptionPayload {
@@ -148,17 +153,19 @@ input PageSubscriptionWhereInput {
 
 input PageUpdateInput {
   name: String
+  status: String
   path: String
+  published: DateTime
   description: String
-  published: Boolean
   sections: SectionUpdateManyInput
 }
 
 input PageUpdateManyMutationInput {
   name: String
+  status: String
   path: String
+  published: DateTime
   description: String
-  published: Boolean
 }
 
 input PageWhereInput {
@@ -190,6 +197,20 @@ input PageWhereInput {
   name_not_starts_with: String
   name_ends_with: String
   name_not_ends_with: String
+  status: String
+  status_not: String
+  status_in: [String!]
+  status_not_in: [String!]
+  status_lt: String
+  status_lte: String
+  status_gt: String
+  status_gte: String
+  status_contains: String
+  status_not_contains: String
+  status_starts_with: String
+  status_not_starts_with: String
+  status_ends_with: String
+  status_not_ends_with: String
   path: String
   path_not: String
   path_in: [String!]
@@ -204,6 +225,28 @@ input PageWhereInput {
   path_not_starts_with: String
   path_ends_with: String
   path_not_ends_with: String
+  published: DateTime
+  published_not: DateTime
+  published_in: [DateTime!]
+  published_not_in: [DateTime!]
+  published_lt: DateTime
+  published_lte: DateTime
+  published_gt: DateTime
+  published_gte: DateTime
+  description: String
+  description_not: String
+  description_in: [String!]
+  description_not_in: [String!]
+  description_lt: String
+  description_lte: String
+  description_gt: String
+  description_gte: String
+  description_contains: String
+  description_not_contains: String
+  description_starts_with: String
+  description_not_starts_with: String
+  description_ends_with: String
+  description_not_ends_with: String
   createdAt: DateTime
   createdAt_not: DateTime
   createdAt_in: [DateTime!]
@@ -220,22 +263,6 @@ input PageWhereInput {
   updatedAt_lte: DateTime
   updatedAt_gt: DateTime
   updatedAt_gte: DateTime
-  description: String
-  description_not: String
-  description_in: [String!]
-  description_not_in: [String!]
-  description_lt: String
-  description_lte: String
-  description_gt: String
-  description_gte: String
-  description_contains: String
-  description_not_contains: String
-  description_starts_with: String
-  description_not_starts_with: String
-  description_ends_with: String
-  description_not_ends_with: String
-  published: Boolean
-  published_not: Boolean
   sections_every: SectionWhereInput
   sections_some: SectionWhereInput
   sections_none: SectionWhereInput
